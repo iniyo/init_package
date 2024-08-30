@@ -1,0 +1,81 @@
+digraph "" {
+  graph [style=rounded fontname="Arial Black" fontsize=13 penwidth=2.6];
+  node [shape=rect style="filled,rounded" fontname=Arial fontsize=15 fillcolor=Lavender penwidth=1.3];
+  edge [penwidth=1.3];
+  "/config/env.dart" [label="env"];
+  "/config/env.g.dart" [label="env.g"];
+  "/core/constants/app_constants.dart" [label="app_constants"];
+  "/core/errors.dart" [label="errors"];
+  "/core/theme.dart" [label="theme"];
+  "/core/usecases.dart" [label="usecases"];
+  "/data/data_source.dart" [label="data_source"];
+  "/data/model.dart" [label="model"];
+  "/data/repository.dart" [label="repository"];
+  "/domain/entities.dart" [label="entities"];
+  "/domain/repository.dart" [label="repository"];
+  "/domain/usecase.dart" [label="usecase"];
+  "/main.dart" [label="main"];
+  "/navigation/app_navigation.dart" [label="app_navigation"];
+  "/presentation/globalcomponent/global_base_layout.dart" [label="global_base_layout"];
+  "/presentation/globalcomponent/global_component_style.dart" [label="global_component_style"];
+  "/presentation/home_screen.dart" [label="home_screen"];
+  "/presentation/login_screen.dart" [label="login_screen"];
+  "/presentation/viewmodels/counter_viewmodel.dart" [label="counter_viewmodel"];
+  "/providers.dart" [label="providers"];
+  subgraph "cluster~" {
+    label="lib";
+    "/main.dart";
+    "/providers.dart";
+    subgraph "cluster~/config" {
+      label="config";
+      "/config/env.dart";
+      "/config/env.g.dart";
+    }
+    subgraph "cluster~/core" {
+      label="core";
+      "/core/errors.dart";
+      "/core/theme.dart";
+      "/core/usecases.dart";
+      subgraph "cluster~/core/constants" {
+        label="constants";
+        "/core/constants/app_constants.dart";
+      }
+    }
+    subgraph "cluster~/data" {
+      label="data";
+      "/data/data_source.dart";
+      "/data/model.dart";
+      "/data/repository.dart";
+    }
+    subgraph "cluster~/domain" {
+      label="domain";
+      "/domain/entities.dart";
+      "/domain/repository.dart";
+      "/domain/usecase.dart";
+    }
+    subgraph "cluster~/navigation" {
+      label="navigation";
+      "/navigation/app_navigation.dart";
+    }
+    subgraph "cluster~/presentation" {
+      label="presentation";
+      "/presentation/home_screen.dart";
+      "/presentation/login_screen.dart";
+      subgraph "cluster~/presentation/globalcomponent" {
+        label="globalcomponent";
+        "/presentation/globalcomponent/global_base_layout.dart";
+        "/presentation/globalcomponent/global_component_style.dart";
+      }
+      subgraph "cluster~/presentation/viewmodels" {
+        label="viewmodels";
+        "/presentation/viewmodels/counter_viewmodel.dart";
+      }
+    }
+  }
+  "/navigation/app_navigation.dart" -> "/presentation/home_screen.dart";
+  "/navigation/app_navigation.dart" -> "/presentation/login_screen.dart";
+  "/presentation/globalcomponent/global_base_layout.dart" -> "/core/constants/app_constants.dart";
+  "/presentation/home_screen.dart" -> "/providers.dart";
+  "/presentation/login_screen.dart" -> "/presentation/globalcomponent/global_base_layout.dart";
+  "/providers.dart" -> "/presentation/viewmodels/counter_viewmodel.dart";
+}
