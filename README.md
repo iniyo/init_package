@@ -70,8 +70,8 @@ dart run build_runner build --delete-conflicting-outputs
 
 순서대로 입력:
 
-flutter clean
-flutter pub get
+1. flutter clean
+2. flutter pub get
 
 ! config의 환경변수 env.g.dart가 사라진다면 아래 실행
 dart run build_runner build - envied를 위해 필요
