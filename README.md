@@ -38,6 +38,8 @@ terminal에 입력
   rename setAppName --targets ios,android,macos,windows,linux --value "YourAppName"
   가져올때: rename getAppName --targets ios,android,macos,windows,linux
 
+- dart run change_app_package_name:main com.new.package.name
+
 + android에서 bundle name 설정
   rename setBundleId --targets android --value "com.changed.bundleId"
   가져올때: rename getBundleId --targets android
@@ -70,6 +72,8 @@ terminal에 입력
 
 flutter clean
 flutter pub get
+
+! config의 환경변수 env.g.dart가 사라진다면 아래 실행
 dart run build_runner build - envied를 위해 필요
 
 ### 의존성 그래프 보기
