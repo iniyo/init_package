@@ -5,12 +5,17 @@
 ## Guide
 
 ### 주의!
+
 - 최상위에 .env파일 및 lib/config에 env.g.dart가 생성되어 있지 않음
 - 따라서 바로 실행이 안되므로 환경변수부터 설정 혹은 env파일을 삭제하고 실행
 
+- **환경변수 설정**
+1. 최상위(lib가 있는 계층 그 밑 아님)에 .env생성 후 value값 (KEY1=value)설정
+2. 실행 terminal: dart run build_runner build
+
 ! 환경변수 설정이 안된다면
-dart run build_runner clean 이후
-dart run build_runner build --delete-conflicting-outputs 로 실행
+- dart run build_runner clean 이후
+- dart run build_runner build --delete-conflicting-outputs 로 실행
 
 ### 기본 설정 패키지
 
@@ -19,7 +24,6 @@ dart run build_runner build --delete-conflicting-outputs 로 실행
 - permission_handler
 - hive
 - url_launcher
-- change_app_package_name
 - flutter_dotenv
 - lakos
 - envied
