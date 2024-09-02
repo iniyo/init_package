@@ -4,6 +4,10 @@
 
 ## Guide
 
+### 주의!
+- Github로 클론할 시 최상위에 .env파일 및 lib/config에 env.g.dart가 생성되어 있지 않음
+- 따라서 바로 실행이 안되므로 환경변수부터 설정 혹은 env파일을 삭제하고 실행
+
 ### 기본 설정 패키지
 
 - flutter_riverpod
