@@ -3,12 +3,12 @@ import 'package:envied/envied.dart';
 
 part 'env.g.dart';
 
-@Envied(path: '.env')
+@envied
 abstract class Env {
   @EnviedField(varName: 'KEY1')
   static const String key1 = _Env.key1;
-  @EnviedField()
-  static const String key2 = _Env.KEY2;
-  @EnviedField(defaultValue: 'test_')
+  @EnviedField(varName: 'KEY2')
+  static const String key2 = _Env.key2;
+  @EnviedField(varName: 'KEY3')
   static const String key3 = _Env.key3;
 }
