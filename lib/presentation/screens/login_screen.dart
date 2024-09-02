@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:init_package/presentation/globalcomponent/global_base_layout.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -6,9 +7,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const BaseLayout(
+    return BaseLayout(
+      title: "LoginScreen",
       widgets: [
-        // 위젯 추가
+        ElevatedButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: const Text('toHome'),
+        ),
       ],
     );
   }
