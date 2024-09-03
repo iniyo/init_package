@@ -119,6 +119,12 @@ void main() async {
 - mac
 - linux
 
+### 각 플랫폼 별 패키지 등록 시 수정할 파일 위치
+- android: app/src/main/AndroidManifest.xml
+- IOS: Runner/Info.plist
+- macOS: Runner/Info.plist
+- Runner/DebugProfile.entitlements, Runner/Release.entitlements
++ Capabilities 설정: Audio input 활성화
 
 ### Issue
 lib와 Kotlin의 version차이로 Build시 version error
