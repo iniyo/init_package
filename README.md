@@ -29,6 +29,9 @@
 - envied
 - build_runner - 실행 시 dart pub add dev:build_runner
 - rename
+- universal_io (dart.io는 web에서 구동 안 함. 대신 사용)
+- path_provider (web에선 구동 안 함)
+- file_picker (web 디렉토리 선택 시 - path_provider 대신)
 
 ### pub.dev 패키지 추가하는 방법
 
