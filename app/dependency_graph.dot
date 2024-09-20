@@ -1,0 +1,108 @@
+digraph "" {
+  graph [style=rounded fontname="Arial Black" fontsize=13 penwidth=2.6];
+  node [shape=rect style="filled,rounded" fontname=Arial fontsize=15 fillcolor=Lavender penwidth=1.3];
+  edge [penwidth=1.3];
+  "/config/env.dart" [label="env"];
+  "/config/env.g.dart" [label="env.g"];
+  "/core/constants/app_constants.dart" [label="app_constants"];
+  "/core/error/errors.dart" [label="errors"];
+  "/core/router/app_navigation.dart" [label="app_navigation"];
+  "/core/utils/theme.dart" [label="theme"];
+  "/feature/application/auth_service/auth_service.dart" [label="auth_service"];
+  "/feature/data/user_profile/entities.dart" [label="entities"];
+  "/feature/data/user_profile/repository.dart" [label="repository"];
+  "/feature/data/user_profile/user_data_source.dart" [label="user_data_source"];
+  "/feature/domain/user_profile/model.dart" [label="model"];
+  "/feature/domain/user_profile/repository.dart" [label="repository"];
+  "/feature/domain/user_profile/usecase.dart" [label="usecase"];
+  "/feature/presentation/globalcomponent/global_base_layout.dart" [label="global_base_layout"];
+  "/feature/presentation/globalcomponent/global_component_style.dart" [label="global_component_style"];
+  "/feature/presentation/screens/home_screen.dart" [label="home_screen"];
+  "/feature/presentation/screens/login_screen.dart" [label="login_screen"];
+  "/feature/presentation/viewmodels/counter_viewmodel.dart" [label="counter_viewmodel"];
+  "/main.dart" [label="main"];
+  "/providers.dart" [label="providers"];
+  subgraph "cluster~" {
+    label="lib";
+    "/main.dart";
+    "/providers.dart";
+    subgraph "cluster~/config" {
+      label="config";
+      "/config/env.dart";
+      "/config/env.g.dart";
+    }
+    subgraph "cluster~/core" {
+      label="core";
+      subgraph "cluster~/core/constants" {
+        label="constants";
+        "/core/constants/app_constants.dart";
+      }
+      subgraph "cluster~/core/error" {
+        label="error";
+        "/core/error/errors.dart";
+      }
+      subgraph "cluster~/core/router" {
+        label="router";
+        "/core/router/app_navigation.dart";
+      }
+      subgraph "cluster~/core/utils" {
+        label="utils";
+        "/core/utils/theme.dart";
+      }
+    }
+    subgraph "cluster~/feature" {
+      label="feature";
+      subgraph "cluster~/feature/application" {
+        label="application";
+        subgraph "cluster~/feature/application/auth_service" {
+          label="auth_service";
+          "/feature/application/auth_service/auth_service.dart";
+        }
+      }
+      subgraph "cluster~/feature/data" {
+        label="data";
+        subgraph "cluster~/feature/data/user_profile" {
+          label="user_profile";
+          "/feature/data/user_profile/entities.dart";
+          "/feature/data/user_profile/repository.dart";
+          "/feature/data/user_profile/user_data_source.dart";
+        }
+      }
+      subgraph "cluster~/feature/domain" {
+        label="domain";
+        subgraph "cluster~/feature/domain/user_profile" {
+          label="user_profile";
+          "/feature/domain/user_profile/model.dart";
+          "/feature/domain/user_profile/repository.dart";
+          "/feature/domain/user_profile/usecase.dart";
+        }
+      }
+      subgraph "cluster~/feature/presentation" {
+        label="presentation";
+        subgraph "cluster~/feature/presentation/globalcomponent" {
+          label="globalcomponent";
+          "/feature/presentation/globalcomponent/global_base_layout.dart";
+          "/feature/presentation/globalcomponent/global_component_style.dart";
+        }
+        subgraph "cluster~/feature/presentation/screens" {
+          label="screens";
+          "/feature/presentation/screens/home_screen.dart";
+          "/feature/presentation/screens/login_screen.dart";
+        }
+        subgraph "cluster~/feature/presentation/viewmodels" {
+          label="viewmodels";
+          "/feature/presentation/viewmodels/counter_viewmodel.dart";
+        }
+      }
+    }
+  }
+  "/core/router/app_navigation.dart" -> "/feature/presentation/screens/home_screen.dart";
+  "/core/router/app_navigation.dart" -> "/feature/presentation/screens/login_screen.dart";
+  "/feature/presentation/globalcomponent/global_base_layout.dart" -> "/core/constants/app_constants.dart";
+  "/feature/presentation/screens/home_screen.dart" -> "/feature/presentation/globalcomponent/global_base_layout.dart";
+  "/feature/presentation/screens/home_screen.dart" -> "/providers.dart";
+  "/feature/presentation/screens/login_screen.dart" -> "/feature/presentation/globalcomponent/global_base_layout.dart";
+  "/main.dart" -> "/core/utils/theme.dart";
+  "/main.dart" -> "/core/router/app_navigation.dart";
+  "/providers.dart" -> "/feature/presentation/viewmodels/counter_viewmodel.dart";
+}
