@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:init_package/core/theme.dart';
-import 'package:init_package/navigation/app_navigation.dart';
-
-// test 시 terminal에 입력
-/// 전부 테스트
-// flutter test
-/// 개별 테스트
-// flutter test test/providers_test.dart
-// flutter test test/home_screen_test.dart
-
-void main() {
-  runApp(ProviderScope(child: MyApp()));
-}
+import 'package:init_package/core/utils/theme.dart';
+import 'package:init_package/core/router/app_navigation.dart';
 
 class MyApp extends StatelessWidget {
   final AppRouter _appRouter = AppRouter();

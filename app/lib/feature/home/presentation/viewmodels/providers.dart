@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:init_package/presentation/viewmodels/counter_viewmodel.dart';
+import 'package:init_package/feature/home/presentation/viewmodels/counter_viewmodel.dart';
 
 // StateProvider로 기본적인 상태 관리
 final counterProvider = StateProvider<int>((ref) => 0);

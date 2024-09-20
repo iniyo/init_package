@@ -19,19 +19,20 @@
 
 ### 기본 설정 패키지
 
-- flutter_riverpod
-- dio
-- permission_handler
-- hive
-- url_launcher
-- flutter_dotenv
-- lakos
-- envied
+- flutter_riverpod - 상태 값
+- dio - 인터넷 
+- permission_handler - 권한 
+- hive - 로컬 데이터 저장
+- url_launcher - url parser
+- flutter_dotenv - .env 파일에서 환경 변수를 로드
+- envied - 환경변수 암호화
+- lakos - 의존성 그래프
 - build_runner - 실행 시 dart pub add dev:build_runner
-- rename
+- rename - 패키지 이름 변경
 - universal_io (dart.io는 web에서 구동 안 함. 대신 사용)
 - path_provider (web에선 구동 안 함)
 - file_picker (web 디렉토리 선택 시 - path_provider 대신)
+- logman - 로그 관리 패키지
 
 ### pub.dev 패키지 추가하는 방법
 
@@ -61,7 +62,7 @@ terminal에 입력
 - 변경 시 사용중이라고 뜨는 경우: 작업관리자 -> jdk manager 종료
   *선택* 추가적으로 android 디렉토리 이름 변경 작업 진행 (app -> src -> main -> kolin or java -> example -> 설정한 패키지 이름 디렉토리 변경)
 
-## 프로젝트 사용 시 주의할 점
+## 프로젝트 사용 
 
 ### 환경변수 세팅 시
 
@@ -86,7 +87,7 @@ dart run build_runner build - envied를 위해 필요
 
 terminal에 입력:
 
-- 내장 프린터로 출력: flutter pub deps
+- 내장 프린터로 출력: flutter pub devs
 
 - lakos로 출력 하는 법:
 
@@ -98,6 +99,7 @@ terminal에 입력:
 - windows에서 실행: ./build_graph.bat
 
 - lakos 코드로 실행:
+
 ```
 import 'dart:io';
 
@@ -113,6 +115,20 @@ void main() async {
 }
 ```
 
+### Flutter 패키지 만드는 법
+
+1. 패키지 생성
+- Flutter 모든 플랫폼 관련 파일 생성: flutter create [폴더명 설정]
+- dart 패키지 관련 파일만 생성: flutter create --template=package [폴더명 설정]
+2. 패키지 경로 명시
+- app 내의 pubspec.yaml에 있는 dependencies에 추가
+```
+dependencies:
+  # 이 부분 추가
+  [폴더명]:
+    path: ../[폴더명]  # API 패키지의 경로를 명시 필요할 시 수정
+```
+
 ### 지원 Platform
 
 - Android
@@ -123,10 +139,12 @@ void main() async {
 - linux
 
 ### 각 플랫폼 별 패키지 등록 시 수정할 파일 위치
+
 - android: app/src/main/AndroidManifest.xml
 - IOS: Runner/Info.plist
 - macOS: Runner/Info.plist, Runner/DebugProfile.entitlements, Runner/Release.entitlements
 + Capabilities 설정: Audio input 활성화
 
 ### Issue
+
 lib와 Kotlin의 version차이로 Build시 version error

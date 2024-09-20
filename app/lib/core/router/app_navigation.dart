@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:init_package/presentation/screens/home_screen.dart';
-import 'package:init_package/presentation/screens/login_screen.dart';
+import 'package:init_package/feature/features.dart';
 
 class AppRouter {
   late final GoRouter router;
