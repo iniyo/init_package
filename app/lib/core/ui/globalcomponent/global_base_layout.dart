@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:init_package/core/constants/app_constants.dart';
+import 'package:init_package/core/core.dart';
 
 class BaseLayout extends StatelessWidget {
   const BaseLayout({required this.title, required this.widgets, super.key});

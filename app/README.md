@@ -19,20 +19,40 @@
 
 ### 기본 설정 패키지
 
-- flutter_riverpod - 상태 값
-- dio - 인터넷 
-- permission_handler - 권한 
-- hive - 로컬 데이터 저장
-- url_launcher - url parser
-- flutter_dotenv - .env 파일에서 환경 변수를 로드
-- envied - 환경변수 암호화
-- lakos - 의존성 그래프
-- build_runner - 실행 시 dart pub add dev:build_runner
-- rename - 패키지 이름 변경
-- universal_io (dart.io는 web에서 구동 안 함. 대신 사용)
-- path_provider (web에선 구동 안 함)
-- file_picker (web 디렉토리 선택 시 - path_provider 대신)
-- logman - 로그 관리 패키지
+# 상태관리
+- flutter_riverpod           # Riverpod을 사용한 상태 관리 라이브러리
+- riverpod_annotation         # Riverpod 관련 코드 생성을 위한 애노테이션 패키지
+- hooks_riverpod              # Hook 기반의 Riverpod 확장 패키지
+
+# NETWORK
+- dio                         # HTTP 요청을 위한 네트워크 패키지
+
+# PERMISSIONS
+- permission_handler          # 앱 권한을 관리하는 패키지
+
+# LOCAL STORAGE
+- hive                        # 경량의 NoSQL 데이터베이스 (로컬 데이터 저장)
+
+# ENVIRONMENT
+- flutter_dotenv              # .env 파일에서 환경 변수를 로드하는 패키지
+- envied                      # 환경변수를 암호화하여 보호하는 패키지
+
+# DEPENDENCY MANAGEMENT
+- lakos                       # 의존성 그래프를 시각화하는 패키지
+- build_runner                # 코드 생성기를 실행하기 위한 dev 패키지
+- rename                      # 프로젝트의 패키지 이름을 쉽게 변경할 수 있는 패키지
+
+# FILE SYSTEM
+- universal_io                # dart.io를 대체하여 웹 및 다른 플랫폼에서도 파일 시스템을 처리하는 패키지
+- path_provider               # 로컬 파일 시스템에 경로를 제공하는 패키지 (웹에서는 지원 안 함)
+- file_picker                 # 파일 및 디렉토리 선택 기능을 제공하는 패키지 (웹에서 디렉토리 선택 시 path_provider 대신 사용)
+
+# UTILITIES
+- url_launcher                # URL을 열거나 처리할 때 사용하는 패키지
+
+# LOGGING
+- logman                      # 로그를 관리하고 처리하는 패키지
+
 
 ### pub.dev 패키지 추가하는 방법
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:init_package/feature/ProjectApplication.dart';
-import 'package:init_package/core/utils/riverpod_observer.dart';
+import 'feature/ProjectApplication.dart';
+import 'core/core.dart';
 
 // test 시 terminal에 입력
 /// 전부 테스트

@@ -5,27 +5,51 @@ digraph "" {
   "/config/env.dart" [label="env"];
   "/config/env.g.dart" [label="env.g"];
   "/core/constants/app_constants.dart" [label="app_constants"];
-  "/core/error/errors.dart" [label="errors"];
-  "/core/router/app_navigation.dart" [label="app_navigation"];
+  "/core/core.dart" [label="core"];
+  "/core/data/auth/auth.dart" [label="auth"];
+  "/core/data/auth/data_source/data_source.dart" [label="data_source"];
+  "/core/data/auth/data_source/user_data_source.dart" [label="user_data_source"];
+  "/core/data/auth/model/user_model.dart" [label="user_model"];
+  "/core/data/auth/repository/user_repository.dart" [label="user_repository"];
+  "/core/data/data.dart" [label="data"];
+  "/core/datastore/datastore.dart" [label="datastore"];
+  "/core/domain/domain.dart" [label="domain"];
+  "/core/domain/usecase/usecases.dart" [label="usecases"];
+  "/core/domain/usecase/user_profile_usecase.dart" [label="user_profile_usecase"];
+  "/core/model/model.dart" [label="model"];
+  "/core/model/models/auth_model.dart" [label="auth_model"];
+  "/core/model/models/router_model.dart" [label="router_model"];
+  "/core/model/models/user_profile_model.dart" [label="user_profile_model"];
+  "/core/navigation/app_navigation.dart" [label="app_navigation"];
+  "/core/navigation/app_navigation_provider.dart" [label="app_navigation_provider"];
+  "/core/navigation/app_router.dart" [label="app_router"];
+  "/core/navigation/navigation.dart" [label="navigation"];
+  "/core/ui/globalcomponent/global_base_layout.dart" [label="global_base_layout"];
+  "/core/ui/globalcomponent/global_components.dart" [label="global_components"];
+  "/core/ui/globalcomponent/global_component_style.dart" [label="global_component_style"];
+  "/core/ui/ui.dart" [label="ui"];
+  "/core/utils/riverpod_observer.dart" [label="riverpod_observer"];
   "/core/utils/theme.dart" [label="theme"];
-  "/feature/application/auth_service/auth_service.dart" [label="auth_service"];
-  "/feature/data/user_profile/entities.dart" [label="entities"];
-  "/feature/data/user_profile/repository.dart" [label="repository"];
-  "/feature/data/user_profile/user_data_source.dart" [label="user_data_source"];
-  "/feature/domain/user_profile/model.dart" [label="model"];
-  "/feature/domain/user_profile/repository.dart" [label="repository"];
-  "/feature/domain/user_profile/usecase.dart" [label="usecase"];
-  "/feature/presentation/globalcomponent/global_base_layout.dart" [label="global_base_layout"];
-  "/feature/presentation/globalcomponent/global_component_style.dart" [label="global_component_style"];
-  "/feature/presentation/screens/home_screen.dart" [label="home_screen"];
-  "/feature/presentation/screens/login_screen.dart" [label="login_screen"];
-  "/feature/presentation/viewmodels/counter_viewmodel.dart" [label="counter_viewmodel"];
+  "/core/utils/utils.dart" [label="utils"];
+  "/feature/auth/presentation/auth_presentation.dart" [label="auth_presentation"];
+  "/feature/auth/presentation/navigation/auth_navigation.dart" [label="auth_navigation"];
+  "/feature/auth/presentation/ui/screens/auth_screen.dart" [label="auth_screen"];
+  "/feature/auth/presentation/ui/screens/screens.dart" [label="screens"];
+  "/feature/auth/presentation/ui/ui.dart" [label="ui"];
+  "/feature/auth/presentation/ui/widgets/login_widget.dart" [label="login_widget"];
+  "/feature/auth/presentation/ui/widgets/widget.dart" [label="widget"];
+  "/feature/features.dart" [label="features"];
+  "/feature/home/presentation/home_presentation.dart" [label="home_presentation"];
+  "/feature/home/presentation/navigation/home_navigation.dart" [label="home_navigation"];
+  "/feature/home/presentation/screens/home_screen.dart" [label="home_screen"];
+  "/feature/home/presentation/screens/screens.dart" [label="screens"];
+  "/feature/home/presentation/viewmodels/counter_viewmodel.dart" [label="counter_viewmodel"];
+  "/feature/home/presentation/viewmodels/providers.dart" [label="providers"];
+  "/feature/ProjectApplication.dart" [label="ProjectApplication"];
   "/main.dart" [label="main"];
-  "/providers.dart" [label="providers"];
   subgraph "cluster~" {
     label="lib";
     "/main.dart";
-    "/providers.dart";
     subgraph "cluster~/config" {
       label="config";
       "/config/env.dart";
@@ -33,76 +57,179 @@ digraph "" {
     }
     subgraph "cluster~/core" {
       label="core";
+      "/core/core.dart";
       subgraph "cluster~/core/constants" {
         label="constants";
         "/core/constants/app_constants.dart";
       }
-      subgraph "cluster~/core/error" {
-        label="error";
-        "/core/error/errors.dart";
+      subgraph "cluster~/core/data" {
+        label="data";
+        "/core/data/data.dart";
+        subgraph "cluster~/core/data/auth" {
+          label="auth";
+          "/core/data/auth/auth.dart";
+          subgraph "cluster~/core/data/auth/data_source" {
+            label="data_source";
+            "/core/data/auth/data_source/data_source.dart";
+            "/core/data/auth/data_source/user_data_source.dart";
+          }
+          subgraph "cluster~/core/data/auth/model" {
+            label="model";
+            "/core/data/auth/model/user_model.dart";
+          }
+          subgraph "cluster~/core/data/auth/repository" {
+            label="repository";
+            "/core/data/auth/repository/user_repository.dart";
+          }
+        }
       }
-      subgraph "cluster~/core/router" {
-        label="router";
-        "/core/router/app_navigation.dart";
+      subgraph "cluster~/core/datastore" {
+        label="datastore";
+        "/core/datastore/datastore.dart";
+      }
+      subgraph "cluster~/core/domain" {
+        label="domain";
+        "/core/domain/domain.dart";
+        subgraph "cluster~/core/domain/usecase" {
+          label="usecase";
+          "/core/domain/usecase/usecases.dart";
+          "/core/domain/usecase/user_profile_usecase.dart";
+        }
+      }
+      subgraph "cluster~/core/model" {
+        label="model";
+        "/core/model/model.dart";
+        subgraph "cluster~/core/model/models" {
+          label="models";
+          "/core/model/models/auth_model.dart";
+          "/core/model/models/router_model.dart";
+          "/core/model/models/user_profile_model.dart";
+        }
+      }
+      subgraph "cluster~/core/navigation" {
+        label="navigation";
+        "/core/navigation/app_navigation.dart";
+        "/core/navigation/app_navigation_provider.dart";
+        "/core/navigation/app_router.dart";
+        "/core/navigation/navigation.dart";
+      }
+      subgraph "cluster~/core/ui" {
+        label="ui";
+        "/core/ui/ui.dart";
+        subgraph "cluster~/core/ui/globalcomponent" {
+          label="globalcomponent";
+          "/core/ui/globalcomponent/global_base_layout.dart";
+          "/core/ui/globalcomponent/global_components.dart";
+          "/core/ui/globalcomponent/global_component_style.dart";
+        }
       }
       subgraph "cluster~/core/utils" {
         label="utils";
+        "/core/utils/riverpod_observer.dart";
         "/core/utils/theme.dart";
+        "/core/utils/utils.dart";
       }
     }
     subgraph "cluster~/feature" {
       label="feature";
-      subgraph "cluster~/feature/application" {
-        label="application";
-        subgraph "cluster~/feature/application/auth_service" {
-          label="auth_service";
-          "/feature/application/auth_service/auth_service.dart";
+      "/feature/features.dart";
+      "/feature/ProjectApplication.dart";
+      subgraph "cluster~/feature/auth" {
+        label="auth";
+        subgraph "cluster~/feature/auth/presentation" {
+          label="presentation";
+          "/feature/auth/presentation/auth_presentation.dart";
+          subgraph "cluster~/feature/auth/presentation/navigation" {
+            label="navigation";
+            "/feature/auth/presentation/navigation/auth_navigation.dart";
+          }
+          subgraph "cluster~/feature/auth/presentation/ui" {
+            label="ui";
+            "/feature/auth/presentation/ui/ui.dart";
+            subgraph "cluster~/feature/auth/presentation/ui/screens" {
+              label="screens";
+              "/feature/auth/presentation/ui/screens/auth_screen.dart";
+              "/feature/auth/presentation/ui/screens/screens.dart";
+            }
+            subgraph "cluster~/feature/auth/presentation/ui/widgets" {
+              label="widgets";
+              "/feature/auth/presentation/ui/widgets/login_widget.dart";
+              "/feature/auth/presentation/ui/widgets/widget.dart";
+            }
+          }
         }
       }
-      subgraph "cluster~/feature/data" {
-        label="data";
-        subgraph "cluster~/feature/data/user_profile" {
-          label="user_profile";
-          "/feature/data/user_profile/entities.dart";
-          "/feature/data/user_profile/repository.dart";
-          "/feature/data/user_profile/user_data_source.dart";
-        }
-      }
-      subgraph "cluster~/feature/domain" {
-        label="domain";
-        subgraph "cluster~/feature/domain/user_profile" {
-          label="user_profile";
-          "/feature/domain/user_profile/model.dart";
-          "/feature/domain/user_profile/repository.dart";
-          "/feature/domain/user_profile/usecase.dart";
-        }
-      }
-      subgraph "cluster~/feature/presentation" {
-        label="presentation";
-        subgraph "cluster~/feature/presentation/globalcomponent" {
-          label="globalcomponent";
-          "/feature/presentation/globalcomponent/global_base_layout.dart";
-          "/feature/presentation/globalcomponent/global_component_style.dart";
-        }
-        subgraph "cluster~/feature/presentation/screens" {
-          label="screens";
-          "/feature/presentation/screens/home_screen.dart";
-          "/feature/presentation/screens/login_screen.dart";
-        }
-        subgraph "cluster~/feature/presentation/viewmodels" {
-          label="viewmodels";
-          "/feature/presentation/viewmodels/counter_viewmodel.dart";
+      subgraph "cluster~/feature/home" {
+        label="home";
+        subgraph "cluster~/feature/home/presentation" {
+          label="presentation";
+          "/feature/home/presentation/home_presentation.dart";
+          subgraph "cluster~/feature/home/presentation/navigation" {
+            label="navigation";
+            "/feature/home/presentation/navigation/home_navigation.dart";
+          }
+          subgraph "cluster~/feature/home/presentation/screens" {
+            label="screens";
+            "/feature/home/presentation/screens/home_screen.dart";
+            "/feature/home/presentation/screens/screens.dart";
+          }
+          subgraph "cluster~/feature/home/presentation/viewmodels" {
+            label="viewmodels";
+            "/feature/home/presentation/viewmodels/counter_viewmodel.dart";
+            "/feature/home/presentation/viewmodels/providers.dart";
+          }
         }
       }
     }
   }
-  "/core/router/app_navigation.dart" -> "/feature/presentation/screens/home_screen.dart";
-  "/core/router/app_navigation.dart" -> "/feature/presentation/screens/login_screen.dart";
-  "/feature/presentation/globalcomponent/global_base_layout.dart" -> "/core/constants/app_constants.dart";
-  "/feature/presentation/screens/home_screen.dart" -> "/feature/presentation/globalcomponent/global_base_layout.dart";
-  "/feature/presentation/screens/home_screen.dart" -> "/providers.dart";
-  "/feature/presentation/screens/login_screen.dart" -> "/feature/presentation/globalcomponent/global_base_layout.dart";
-  "/main.dart" -> "/core/utils/theme.dart";
-  "/main.dart" -> "/core/router/app_navigation.dart";
-  "/providers.dart" -> "/feature/presentation/viewmodels/counter_viewmodel.dart";
+  "/core/core.dart" -> "/core/constants/app_constants.dart" [style=dashed];
+  "/core/core.dart" -> "/core/data/data.dart" [style=dashed];
+  "/core/core.dart" -> "/core/domain/domain.dart" [style=dashed];
+  "/core/core.dart" -> "/core/model/model.dart" [style=dashed];
+  "/core/core.dart" -> "/core/navigation/navigation.dart" [style=dashed];
+  "/core/core.dart" -> "/core/ui/ui.dart" [style=dashed];
+  "/core/core.dart" -> "/core/utils/utils.dart" [style=dashed];
+  "/core/core.dart" -> "/core/datastore/datastore.dart" [style=dashed];
+  "/core/data/auth/auth.dart" -> "/core/data/auth/repository/user_repository.dart" [style=dashed];
+  "/core/data/auth/auth.dart" -> "/core/data/auth/data_source/data_source.dart" [style=dashed];
+  "/core/data/auth/auth.dart" -> "/core/data/auth/model/user_model.dart" [style=dashed];
+  "/core/data/auth/data_source/data_source.dart" -> "/core/data/auth/data_source/user_data_source.dart" [style=dashed];
+  "/core/data/data.dart" -> "/core/data/auth/auth.dart" [style=dashed];
+  "/core/domain/domain.dart" -> "/core/domain/usecase/usecases.dart" [style=dashed];
+  "/core/domain/usecase/usecases.dart" -> "/core/domain/usecase/user_profile_usecase.dart" [style=dashed];
+  "/core/model/model.dart" -> "/core/model/models/router_model.dart" [style=dashed];
+  "/core/model/model.dart" -> "/core/model/models/user_profile_model.dart" [style=dashed];
+  "/core/model/model.dart" -> "/core/model/models/auth_model.dart" [style=dashed];
+  "/core/model/models/router_model.dart" -> "/feature/features.dart" [style=dashed];
+  "/core/navigation/app_navigation_provider.dart" -> "/core/navigation/app_router.dart";
+  "/core/navigation/app_router.dart" -> "/core/core.dart";
+  "/core/navigation/navigation.dart" -> "/core/navigation/app_navigation.dart" [style=dashed];
+  "/core/navigation/navigation.dart" -> "/core/navigation/app_router.dart" [style=dashed];
+  "/core/navigation/navigation.dart" -> "/core/navigation/app_navigation_provider.dart" [style=dashed];
+  "/core/ui/globalcomponent/global_base_layout.dart" -> "/core/core.dart";
+  "/core/ui/globalcomponent/global_components.dart" -> "/core/ui/globalcomponent/global_base_layout.dart" [style=dashed];
+  "/core/ui/globalcomponent/global_components.dart" -> "/core/ui/globalcomponent/global_component_style.dart" [style=dashed];
+  "/core/ui/ui.dart" -> "/core/ui/globalcomponent/global_components.dart" [style=dashed];
+  "/core/utils/utils.dart" -> "/core/utils/theme.dart" [style=dashed];
+  "/core/utils/utils.dart" -> "/core/utils/riverpod_observer.dart" [style=dashed];
+  "/feature/auth/presentation/auth_presentation.dart" -> "/feature/auth/presentation/ui/ui.dart" [style=dashed];
+  "/feature/auth/presentation/auth_presentation.dart" -> "/feature/auth/presentation/navigation/auth_navigation.dart" [style=dashed];
+  "/feature/auth/presentation/navigation/auth_navigation.dart" -> "/core/core.dart";
+  "/feature/auth/presentation/ui/screens/auth_screen.dart" -> "/core/core.dart";
+  "/feature/auth/presentation/ui/screens/screens.dart" -> "/feature/auth/presentation/ui/screens/auth_screen.dart" [style=dashed];
+  "/feature/auth/presentation/ui/ui.dart" -> "/feature/auth/presentation/ui/screens/screens.dart" [style=dashed];
+  "/feature/auth/presentation/ui/ui.dart" -> "/feature/auth/presentation/ui/widgets/widget.dart" [style=dashed];
+  "/feature/auth/presentation/ui/widgets/widget.dart" -> "/feature/auth/presentation/ui/widgets/login_widget.dart" [style=dashed];
+  "/feature/features.dart" -> "/feature/home/presentation/home_presentation.dart" [style=dashed];
+  "/feature/features.dart" -> "/feature/auth/presentation/auth_presentation.dart" [style=dashed];
+  "/feature/home/presentation/home_presentation.dart" -> "/feature/home/presentation/screens/screens.dart" [style=dashed];
+  "/feature/home/presentation/home_presentation.dart" -> "/feature/home/presentation/navigation/home_navigation.dart" [style=dashed];
+  "/feature/home/presentation/navigation/home_navigation.dart" -> "/core/core.dart";
+  "/feature/home/presentation/screens/home_screen.dart" -> "/core/core.dart";
+  "/feature/home/presentation/screens/home_screen.dart" -> "/feature/home/presentation/viewmodels/providers.dart";
+  "/feature/home/presentation/screens/screens.dart" -> "/feature/home/presentation/screens/home_screen.dart" [style=dashed];
+  "/feature/home/presentation/viewmodels/providers.dart" -> "/feature/home/presentation/viewmodels/counter_viewmodel.dart";
+  "/feature/ProjectApplication.dart" -> "/core/core.dart";
+  "/main.dart" -> "/feature/ProjectApplication.dart";
+  "/main.dart" -> "/core/core.dart";
 }
