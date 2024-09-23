@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:init_package/feature/globalcomponent/global_base_layout.dart';
+import 'package:init_package/core/core.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

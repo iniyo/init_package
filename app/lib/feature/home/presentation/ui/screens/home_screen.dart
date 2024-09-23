@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:init_package/feature/globalcomponent/global_base_layout.dart';
+import 'package:init_package/core/core.dart';
+import '../../viewmodels/providers.dart';
 
-import '../viewmodels/providers.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -13,6 +12,7 @@ class HomePage extends ConsumerWidget {
     final greeting = ref.watch(greetingProvider);
     final count = ref.watch(counterViewModelProvider);
     final viewModel = ref.read(counterViewModelProvider.notifier);
+    final appRouter = ref.read(appRouterProvider); // AppRouter 의존성 주입
 
     // FutureProvider의 상태를 구독하여 처리
     final asyncValue = ref.watch(futureDataProvider);
@@ -56,7 +56,7 @@ class HomePage extends ConsumerWidget {
           onPressed: () {
             // use go router
             // context.go('/login'); // 사용 시 navigation stack을 새로 생성.
-            context.push('/login');
+            appRouter.goToHome(context);
           },
           child: const Text('toLogin'),
         )

@@ -1,0 +1,1 @@
+export 'globalcomponent/global_components.dart';
